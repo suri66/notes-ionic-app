@@ -1,0 +1,59 @@
+<!--
+Generated template for the ListNotesPage page.
+
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="addNewNote()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Notes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <ion-grid>
+    <ion-row >
+      <ion-col col-4>{{note.modifiedDate | date:'dd/mm/yyyy hh:mm'}}</ion-col>
+      <ion-col col-8>{{note.note}}</ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+
+    <ion-list>
+      <ion-item *ngFor="let note of notes">
+        <ion-avatar item-start>
+          <!-- <img src="img/avatar-finn.png"> -->
+          {{note.modifiedDate | date:'dd/mm/yyyy'}}
+          <br/>
+          {{note.modifiedDate | date:'hh:mm'}}
+        </ion-avatar>
+        <!-- <h2>Finn</h2> -->
+        <h3>{{note.note}}</h3>
+        <ion-buttons end>
+          <button (click)="addNewNote()">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+        </ion-buttons>
+        <p>I've had a pretty messed up day. If we just...</p>
+      </ion-item>
+    </ion-list>
+
+
+  <ion-card *ngIf="!notes.length">
+    <ion-card-header>
+      No records found!
+    </ion-card-header>
+    <ion-card-content>
+      Please click on the Add new icon at the top right corner to add a note.
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

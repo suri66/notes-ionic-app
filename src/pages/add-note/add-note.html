@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Note</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="onSaveNote(f.value)" #f="ngForm">
+    <ion-item>
+      <!-- <ion-label>
+        Title
+      </ion-label> -->
+      <ion-textarea name="note" placeholder="Add note here.." ngModel required></ion-textarea>
+      <!-- <ion-input type="text" name="note" ></ion-input> -->
+    </ion-item>
+    <br/>
+    <button ion-button block type="submit" [disabled]="!f.valid" >Add Note</button>
+  </form>
+</ion-content>
